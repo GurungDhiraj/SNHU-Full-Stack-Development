@@ -6,6 +6,7 @@ import { TripDataService } from '../services/trip-data.service';
 import { Trip } from '../models/trip';
 
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 // ChangeDetectorRef to allow trip cards to refresh
 //import { ChangeDetectorRef } from '@angular/core';
@@ -26,9 +27,15 @@ export class TripListingComponent implements OnInit {
   constructor(
     private tripDataService: TripDataService,
     private router: Router,
+    private authenticationService: AuthenticationService
     //private cdr: ChangeDetectorRef // inject the ChangeDetectorRef
     ){
     console.log('trip-listing constructor');
+  }
+
+   ngOnInit(): void {
+    console.log('ngOnInit');
+    this.getStuff();
   }
 
   public addTrip():void{
@@ -60,9 +67,10 @@ export class TripListingComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    console.log('ngOnInit');
-    this.getStuff();
+  public isLoggedIn()
+  {
+    return this.authenticationService.isLoggedIn();
   }
+
 
 }
