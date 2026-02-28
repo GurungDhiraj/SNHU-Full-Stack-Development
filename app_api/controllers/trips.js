@@ -122,10 +122,36 @@ const tripsUpdateTrip = async(req, res) => {
     // console.log(q);
 };
 
+const tripsDeleteTrip = async(req, res) => {
+    // Uncomment for debugging
+    console.log(req.params);
+
+    const q = await Model
+        .findOneAndDelete(
+            { 'code' : req.params.tripCode }
+        )
+        .exec();
+
+        if(!q)
+        { // Database returned no data
+            return res
+                .status(400)
+                .json(err);
+        } else { // Return resulting updated trip
+            return res
+                .status(201)
+                .json(q);
+        }
+        
+    // Uncomment the following line to show results ofoperation
+    // on the console
+    // console.log(q);
+};
 
 module.exports = {
     tripsList,
     tripsFindByCode,
     tripsAddTrip,
-    tripsUpdateTrip
+    tripsUpdateTrip,
+    tripsDeleteTrip
 };

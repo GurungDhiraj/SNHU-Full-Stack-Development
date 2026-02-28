@@ -1,0 +1,48 @@
+<div class="col-md-4">
+    <h2 class="text-center">Delete Trip</h2>
+    
+    <div *ngIf="trip">
+
+        <div class="form-group">
+            <label>Code:</label>
+            <p class="form-display">{{trip.code}}</p> 
+        </div>
+
+        <div class="form-group">
+            <label>Name:</label>
+            <p class="form-display">{{trip.name}}</p> 
+        </div>
+
+        <div class="form-group">
+            <label>Length:</label>
+            <p class="form-display">{{trip.length}}</p> 
+        </div>
+
+        <div class="form-group">
+            <label>Start:</label>
+            <p class="form-display">{{trip.start}}</p> 
+        </div>
+
+        <div class="form-group">
+            <label>Resort:</label>
+            <p class="form-display">{{trip.resort}}</p> 
+        </div>
+
+        <div class="form-group">
+            <label>Per Person:</label>
+            <p class="form-display">{{trip.perPerson}}</p> 
+        </div>
+
+        <div class="form-group">
+            <label>Image Name:</label>
+           <p class="form-display">{{trip.image}}</p> 
+        </div>
+
+        <div class="form-group">
+            <label>Description:</label>
+            <p class="form-display">{{trip.description}}</p> 
+        </div>
+
+        <button type="button" class="btn btn-info" (click)="onSubmit()">Delete</button>
+    </div>
+</div>
